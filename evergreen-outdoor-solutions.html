@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evergreen Outdoor Solutions – Landscaping in Reading, Berkshire</title>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark: #234F2D;
+      --green-sage: #8AAE7A;
+      --gold: #D9A441;
+      --cream: #F7F5EF;
+      --charcoal: #2C2C2C;
+      --white: #ffffff;
+      --green-mid: #2e6338;
+      --green-light-bg: #EDF4E8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--green-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.25);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 38px; height: 38px; background: var(--gold);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .nav-logo-text {
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 800; font-size: 1.05rem;
+      color: var(--white); line-height: 1.1;
+    }
+    .nav-logo-text span { color: var(--green-sage); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: .88rem;
+      color: rgba(255,255,255,.85); text-decoration: none; letter-spacing: .02em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: var(--charcoal);
+      font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: .9rem;
+      border: none; border-radius: 30px;
+      padding: .55rem 1.4rem; cursor: pointer;
+      text-decoration: none; letter-spacing: .02em;
+      transition: background .2s, transform .15s;
+    }
+    .nav-cta:hover { background: #c5932e; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top: 68px;
+      position: relative;
+      min-height: 92vh;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, rgba(35,79,45,.92) 0%, rgba(35,79,45,.75) 50%, rgba(35,79,45,.55) 100%),
+        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover no-repeat;
+    }
+    /* decorative leaf shapes */
+    .hero-bg::after {
+      content: '';
+      position: absolute; bottom: -60px; right: -60px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(138,174,122,.22) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 680px; margin-left: 8%; padding: 4rem 0;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(217,164,65,.18); border: 1px solid rgba(217,164,65,.5);
+      border-radius: 30px; padding: .35rem 1rem;
+      color: var(--gold); font-size: .8rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 900; font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: var(--white); line-height: 1.05; margin-bottom: 1.2rem;
+    }
+    .hero h1 .accent { color: var(--gold); }
+    .hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,.85);
+      line-height: 1.75; max-width: 520px; margin-bottom: 2.2rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: var(--charcoal);
+      font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 1rem;
+      border: none; border-radius: 35px; padding: .85rem 2rem;
+      cursor: pointer; text-decoration: none; letter-spacing: .02em;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(217,164,65,.4);
+    }
+    .btn-primary:hover { background: #c5932e; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(217,164,65,.5); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 1rem;
+      border: 2px solid rgba(255,255,255,.6); border-radius: 35px; padding: .85rem 2rem;
+      cursor: pointer; text-decoration: none; letter-spacing: .02em;
+      transition: border-color .2s, color .2s, transform .15s;
+    }
+    .btn-outline:hover { border-color: var(--white); color: var(--white); transform: translateY(-2px); }
+    .hero-stats {
+      position: relative; z-index: 2;
+      display: flex; gap: 0;
+      background: var(--white);
+      border-radius: 18px 18px 0 0;
+      position: absolute; bottom: 0; left: 8%;
+      box-shadow: 0 -4px 30px rgba(0,0,0,.12);
+      overflow: hidden;
+    }
+    .stat {
+      padding: 1.2rem 2.2rem;
+      border-right: 1px solid rgba(0,0,0,.08);
+      text-align: center;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'League Spartan', sans-serif; font-weight: 900;
+      font-size: 1.9rem; color: var(--green-dark); display: block;
+    }
+    .stat-label { font-size: .75rem; color: #888; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 6rem 8% 5rem; }
+    .section-label {
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--green-dark);
+      margin-bottom: .6rem; display: block;
+    }
+    .section-title {
+      font-family: 'League Spartan', sans-serif; font-weight: 800;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      color: var(--charcoal); line-height: 1.1;
+    }
+    .section-title .accent { color: var(--green-dark); }
+    .section-sub {
+      font-size: .98rem; color: #666; line-height: 1.75;
+      max-width: 540px; margin-top: .9rem;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--cream); }
+    .services-header { margin-bottom: 3rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.4rem;
+    }
+    .service-card {
+      background: var(--white); border-radius: 18px;
+      padding: 2rem 1.6rem;
+      border: 1.5px solid rgba(35,79,45,.08);
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--green-dark), var(--green-sage));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(35,79,45,.13); border-color: var(--green-sage); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 52px; height: 52px; background: var(--green-light-bg);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 1.1rem;
+    }
+    .service-name {
+      font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 1.1rem;
+      color: var(--green-dark); margin-bottom: .5rem;
+    }
+    .service-desc { font-size: .85rem; color: #777; line-height: 1.65; }
+
+    /* ── WHY US ── */
+    #why { background: var(--green-dark); color: var(--white); }
+    #why .section-title { color: var(--white); }
+    #why .section-title .accent { color: var(--gold); }
+    #why .section-sub { color: rgba(255,255,255,.75); }
+    #why .section-label { color: var(--green-sage); }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center; margin-top: 3rem;
+    }
+    .why-list { display: flex; flex-direction: column; gap: 1.4rem; }
+    .why-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .why-icon {
+      width: 46px; height: 46px; min-width: 46px;
+      background: rgba(138,174,122,.2); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .why-text h4 {
+      font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 1.05rem;
+      color: var(--white); margin-bottom: .3rem;
+    }
+    .why-text p { font-size: .87rem; color: rgba(255,255,255,.7); line-height: 1.65; }
+    .why-image-wrap {
+      position: relative; border-radius: 24px; overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .why-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .why-badge {
+      position: absolute; bottom: 1.5rem; left: 1.5rem;
+      background: var(--gold); color: var(--charcoal);
+      padding: .8rem 1.2rem; border-radius: 14px;
+      font-family: 'League Spartan', sans-serif; font-weight: 800;
+    }
+    .why-badge .num { font-size: 1.7rem; display: block; line-height: 1; }
+    .why-badge .label { font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; }
+
+    /* ── AREAS ── */
+    #areas { background: var(--cream); }
+    .areas-flex { display: flex; gap: 4rem; align-items: flex-start; margin-top: 3rem; flex-wrap: wrap; }
+    .areas-tags { display: flex; flex-wrap: wrap; gap: .8rem; flex: 1; min-width: 260px; }
+    .area-tag {
+      display: flex; align-items: center; gap: .5rem;
+      background: var(--white); border: 1.5px solid rgba(35,79,45,.12);
+      border-radius: 30px; padding: .6rem 1.2rem;
+      font-family: 'League Spartan', sans-serif; font-weight: 600; font-size: .95rem;
+      color: var(--green-dark);
+      transition: background .2s, border-color .2s, transform .15s;
+      cursor: default;
+    }
+    .area-tag:hover { background: var(--green-light-bg); border-color: var(--green-sage); transform: scale(1.03); }
+    .area-tag .dot { width: 8px; height: 8px; background: var(--green-sage); border-radius: 50%; }
+    .areas-info { flex: 1; min-width: 260px; }
+    .areas-info p { font-size: .95rem; color: #666; line-height: 1.8; margin-bottom: 1.5rem; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--green-light-bg); }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .testi-card {
+      background: var(--white); border-radius: 20px; padding: 1.8rem;
+      box-shadow: 0 2px 16px rgba(35,79,45,.08);
+    }
+    .stars { color: var(--gold); font-size: 1rem; letter-spacing: .1em; margin-bottom: 1rem; }
+    .testi-text { font-size: .9rem; color: #555; line-height: 1.75; margin-bottom: 1.4rem; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: .8rem; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--green-dark); display: flex; align-items: center; justify-content: center;
+      font-family: 'League Spartan', sans-serif; font-weight: 800; color: var(--white); font-size: .9rem;
+    }
+    .testi-name { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: .95rem; color: var(--charcoal); }
+    .testi-loc { font-size: .78rem; color: #999; }
+
+    /* ── PACKAGES ── */
+    #packages { background: var(--cream); }
+    .packages-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .package-card {
+      background: var(--white); border-radius: 22px;
+      padding: 2rem 1.8rem;
+      border: 1.5px solid rgba(0,0,0,.07);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .package-card.featured {
+      background: var(--green-dark); border-color: var(--green-dark);
+    }
+    .package-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(0,0,0,.1); }
+    .pkg-tag {
+      display: inline-block; background: var(--green-light-bg); color: var(--green-dark);
+      font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: .75rem;
+      letter-spacing: .08em; text-transform: uppercase; border-radius: 20px; padding: .3rem .9rem;
+      margin-bottom: 1rem;
+    }
+    .package-card.featured .pkg-tag { background: rgba(138,174,122,.25); color: var(--green-sage); }
+    .pkg-name {
+      font-family: 'League Spartan', sans-serif; font-weight: 800; font-size: 1.4rem;
+      color: var(--green-dark); margin-bottom: .8rem;
+    }
+    .package-card.featured .pkg-name { color: var(--white); }
+    .pkg-features { list-style: none; display: flex; flex-direction: column; gap: .55rem; margin-bottom: 1.5rem; }
+    .pkg-features li {
+      font-size: .85rem; color: #666; display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .package-card.featured .pkg-features li { color: rgba(255,255,255,.8); }
+    .pkg-features li::before { content: '✓'; color: var(--green-sage); font-weight: 700; margin-top: .05em; }
+    .package-card.featured .pkg-features li::before { color: var(--gold); }
+    .pkg-cta {
+      display: block; text-align: center; text-decoration: none;
+      font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: .95rem;
+      border-radius: 30px; padding: .75rem 1.5rem;
+      background: var(--green-light-bg); color: var(--green-dark);
+      transition: background .2s;
+    }
+    .package-card.featured .pkg-cta { background: var(--gold); color: var(--charcoal); }
+    .pkg-cta:hover { background: var(--green-sage); color: var(--white); }
+    .package-card.featured .pkg-cta:hover { background: #c5932e; color: var(--charcoal); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--green-dark); color: var(--white); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-label { color: var(--green-sage); }
+    #contact .section-sub { color: rgba(255,255,255,.75); }
+    .contact-flex { display: flex; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; }
+    .contact-info { flex: 1; min-width: 240px; display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .contact-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      background: rgba(138,174,122,.2); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .contact-item h4 {
+      font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: .9rem;
+      color: var(--green-sage); margin-bottom: .2rem;
+    }
+    .contact-item p { font-size: .9rem; color: rgba(255,255,255,.8); }
+    .contact-form { flex: 2; min-width: 300px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    .form-group label { font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+    .form-group input, .form-group select, .form-group textarea {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      border-radius: 10px; padding: .75rem 1rem;
+      color: var(--white); font-family: 'Montserrat', sans-serif; font-size: .9rem;
+      transition: border-color .2s, background .2s;
+      outline: none;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,.35); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--green-sage); background: rgba(255,255,255,.12);
+    }
+    .form-group select option { background: var(--green-dark); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-submit {
+      background: var(--gold); color: var(--charcoal);
+      font-family: 'League Spartan', sans-serif; font-weight: 800; font-size: 1rem;
+      border: none; border-radius: 35px; padding: .9rem 2.5rem;
+      cursor: pointer; letter-spacing: .03em;
+      transition: background .2s, transform .15s;
+      margin-top: .5rem;
+    }
+    .form-submit:hover { background: #c5932e; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a3b22; color: rgba(255,255,255,.7);
+      padding: 3rem 8% 2rem;
+    }
+    .footer-flex { display: flex; gap: 4rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .footer-brand { flex: 2; min-width: 220px; }
+    .footer-brand .tagline { font-size: .88rem; color: rgba(255,255,255,.55); margin-top: .7rem; line-height: 1.7; max-width: 280px; }
+    .footer-col { flex: 1; min-width: 140px; }
+    .footer-col h5 {
+      font-family: 'League Spartan', sans-serif; font-weight: 700;
+      font-size: .85rem; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--green-sage); margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col a { font-size: .85rem; color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.5rem;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      font-size: .8rem; color: rgba(255,255,255,.4);
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 5%; }
+      .nav-links { display: none; }
+      section { padding: 4rem 5% 3.5rem; }
+      .hero-content { margin-left: 5%; }
+      .hero-stats { left: 5%; }
+      .stat { padding: 1rem 1.2rem; }
+      .why-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-flex { gap: 2rem; }
+    }
+    @media (max-width: 480px) {
+      .hero-stats { display: none; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">🌿</div>
+    <div class="nav-logo-text">Evergreen<br><span>Outdoor Solutions</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Get a Free Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">📍 Serving Reading & Berkshire</div>
+    <h1>Transforming <span class="accent">Outdoor Spaces</span> Across Berkshire</h1>
+    <p>From lawn care to full garden transformations, Evergreen Outdoor Solutions brings professional, friendly expertise to every garden in Reading and beyond.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#contact">Get a Free Quote</a>
+      <a class="btn-outline" href="#services">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Happy Customers</span></div>
+    <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Years Experience</span></div>
+    <div class="stat"><span class="stat-num">6</span><span class="stat-label">Areas Covered</span></div>
+    <div class="stat"><span class="stat-num">5★</span><span class="stat-label">Average Rating</span></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <span class="section-label">What We Do</span>
+    <h2 class="section-title">Expert Garden Services, <span class="accent">Done Right</span></h2>
+    <p class="section-sub">Whatever your outdoor space needs, our experienced team delivers quality results every time — no fuss, no mess.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🌱</div>
+      <div class="service-name">Lawn Care</div>
+      <p class="service-desc">Regular mowing, edging, feeding and treatment to keep your lawn lush and healthy all year round.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Hedge Trimming</div>
+      <p class="service-desc">Precise shaping and trimming of all hedge types, leaving your garden looking neat and well-defined.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🌸</div>
+      <div class="service-name">Garden Maintenance</div>
+      <p class="service-desc">Comprehensive upkeep including weeding, pruning, planting and general tidying throughout the seasons.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">💧</div>
+      <div class="service-name">Pressure Washing</div>
+      <p class="service-desc">Revive patios, driveways, decking and paths with powerful pressure washing that lifts even stubborn grime.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🪵</div>
+      <div class="service-name">Fencing</div>
+      <p class="service-desc">Supply and installation of fencing to all styles and budgets — from close-board panels to decorative options.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🧹</div>
+      <div class="service-name">Garden Clearances</div>
+      <p class="service-desc">Full clearance of overgrown, neglected or end-of-tenancy gardens. We leave the space clean and ready.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🟩</div>
+      <div class="service-name">Turf Installation</div>
+      <p class="service-desc">Expert laying of premium quality turf for an instant lush green lawn. Fully prepared and finished to a high standard.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📅</div>
+      <div class="service-name">Seasonal Packages</div>
+      <p class="service-desc">Year-round care plans tailored to your garden's needs — great value, no surprises, just a beautiful garden every season.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <span class="section-label reveal">Why Choose Us</span>
+  <h2 class="section-title reveal">The Local Experts You Can <span class="accent">Trust</span></h2>
+  <p class="section-sub reveal">We're not a faceless national company. We're your neighbours — and we treat every garden like it's our own.</p>
+  <div class="why-grid">
+    <div class="why-list">
+      <div class="why-item reveal">
+        <div class="why-icon">🏡</div>
+        <div class="why-text">
+          <h4>Locally Based in Reading</h4>
+          <p>We know Berkshire inside out. Quick response times and a familiar face every visit.</p>
+        </div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon">🤝</div>
+        <div class="why-text">
+          <h4>Friendly & Professional Team</h4>
+          <p>Polite, reliable and tidy — we treat your home and garden with the utmost respect.</p>
+        </div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon">💬</div>
+        <div class="why-text">
+          <h4>Free No-Obligation Quotes</h4>
+          <p>Honest, transparent pricing. We'll visit, assess and give you a clear quote — no hidden costs.</p>
+        </div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon">🛡️</div>
+        <div class="why-text">
+          <h4>Fully Insured</h4>
+          <p>Complete peace of mind — all our work is fully insured for your protection.</p>
+        </div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon">⭐</div>
+        <div class="why-text">
+          <h4>5-Star Rated Service</h4>
+          <p>Hundreds of happy customers across Berkshire. Our reputation means everything to us.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-image-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80" alt="Beautifully maintained garden" />
+      <div class="why-badge">
+        <span class="num">10+</span>
+        <span class="label">Years of Experience</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section id="areas">
+  <div class="reveal">
+    <span class="section-label">Where We Work</span>
+    <h2 class="section-title">Covering <span class="accent">Reading & Beyond</span></h2>
+    <p class="section-sub">We're proud to serve homeowners across Berkshire. Not sure if we cover your area? Just give us a call.</p>
+  </div>
+  <div class="areas-flex">
+    <div class="areas-tags reveal">
+      <div class="area-tag"><span class="dot"></span>Reading</div>
+      <div class="area-tag"><span class="dot"></span>Caversham</div>
+      <div class="area-tag"><span class="dot"></span>Tilehurst</div>
+      <div class="area-tag"><span class="dot"></span>Woodley</div>
+      <div class="area-tag"><span class="dot"></span>Earley</div>
+      <div class="area-tag"><span class="dot"></span>Wokingham</div>
+    </div>
+    <div class="areas-info reveal">
+      <p>Based in the heart of Reading, we offer fast and reliable response times across all our service areas. Whether you're in a town centre terrace or a countryside property on the outskirts of Wokingham, we'll come to you.</p>
+      <a class="btn-primary" href="#contact" style="display:inline-block;">Check Your Postcode</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="reveal">
+    <span class="section-label">Customer Reviews</span>
+    <h2 class="section-title">What Our Customers <span class="accent">Say</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Absolutely brilliant service. The team transformed our overgrown back garden into something we're genuinely proud of. Friendly, professional and great value."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SJ</div>
+        <div>
+          <div class="testi-name">Sarah J.</div>
+          <div class="testi-loc">Caversham, Reading</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Used Evergreen for a full lawn and hedge tidy-up before selling our house. Made such a difference — house sold within a week! Highly recommend."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MT</div>
+        <div>
+          <div class="testi-name">Mark T.</div>
+          <div class="testi-loc">Woodley</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"We've had Evergreen on a monthly maintenance plan for two years now. Always on time, always reliable. Our garden has never looked better."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">PW</div>
+        <div>
+          <div class="testi-name">Patricia W.</div>
+          <div class="testi-loc">Tilehurst</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"The pressure washing on our patio was incredible — like a brand new surface. Quick, clean and reasonably priced. Will definitely be using again."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">RB</div>
+        <div>
+          <div class="testi-name">Rob B.</div>
+          <div class="testi-loc">Earley</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="reveal">
+    <span class="section-label">Seasonal Plans</span>
+    <h2 class="section-title">Garden Packages to <span class="accent">Suit Every Home</span></h2>
+    <p class="section-sub">Choose a plan for year-round garden care — or mix and match services to build your own.</p>
+  </div>
+  <div class="packages-grid">
+    <div class="package-card reveal">
+      <div class="pkg-tag">Essential</div>
+      <div class="pkg-name">Basic Garden Care</div>
+      <ul class="pkg-features">
+        <li>Monthly lawn mow & edge</li>
+        <li>Seasonal hedge trim</li>
+        <li>Path & border tidy</li>
+        <li>Waste removal included</li>
+      </ul>
+      <a class="pkg-cta" href="#contact">Enquire Now</a>
+    </div>
+    <div class="package-card featured reveal">
+      <div class="pkg-tag">Most Popular</div>
+      <div class="pkg-name">Full Maintenance</div>
+      <ul class="pkg-features">
+        <li>Fortnightly lawn care</li>
+        <li>Hedge & shrub trimming</li>
+        <li>Weeding & planting</li>
+        <li>Seasonal treatments</li>
+        <li>Priority scheduling</li>
+      </ul>
+      <a class="pkg-cta" href="#contact">Enquire Now</a>
+    </div>
+    <div class="package-card reveal">
+      <div class="pkg-tag">Premium</div>
+      <div class="pkg-name">Complete Garden</div>
+      <ul class="pkg-features">
+        <li>Weekly visits</li>
+        <li>All maintenance services</li>
+        <li>Pressure washing included</li>
+        <li>Seasonal planting</li>
+        <li>Dedicated gardener</li>
+      </ul>
+      <a class="pkg-cta" href="#contact">Enquire Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <span class="section-label">Get in Touch</span>
+    <h2 class="section-title">Let's Talk About <span class="accent" style="color:var(--gold)">Your Garden</span></h2>
+    <p class="section-sub">Get in touch for a free, no-obligation quote. We'll get back to you within 24 hours.</p>
+  </div>
+  <div class="contact-flex">
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Call Us</h4>
+          <p>0118 000 0000</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <h4>Email Us</h4>
+          <p>hello@evergreenoutdoor.co.uk</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Based In</h4>
+          <p>Reading, Berkshire</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <h4>Working Hours</h4>
+          <p>Mon–Sat: 8am – 6pm</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="07700 000000" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@email.com" />
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:1rem">
+        <label>Service Required</label>
+        <select>
+          <option value="">— Select a service —</option>
+          <option>Lawn Care</option>
+          <option>Hedge Trimming</option>
+          <option>Garden Maintenance</option>
+          <option>Pressure Washing</option>
+          <option>Fencing</option>
+          <option>Garden Clearance</option>
+          <option>Turf Installation</option>
+          <option>Seasonal Package</option>
+          <option>Not Sure / Multiple</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-bottom:1rem">
+        <label>Tell Us About Your Garden</label>
+        <textarea placeholder="Describe what you need, your garden size, or anything else that would help us..."></textarea>
+      </div>
+      <button class="form-submit">Send My Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-flex">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:.7rem">
+        <div style="width:34px;height:34px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;">🌿</div>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:800;color:#fff;font-size:1rem;">Evergreen Outdoor Solutions</span>
+      </div>
+      <p class="tagline">Transforming outdoor spaces across Berkshire. Professional, friendly, reliable garden services you can trust.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Lawn Care</a></li>
+        <li><a href="#services">Hedge Trimming</a></li>
+        <li><a href="#services">Garden Maintenance</a></li>
+        <li><a href="#services">Pressure Washing</a></li>
+        <li><a href="#services">Fencing</a></li>
+        <li><a href="#services">Garden Clearances</a></li>
+        <li><a href="#services">Turf Installation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Areas</h5>
+      <ul>
+        <li><a href="#areas">Reading</a></li>
+        <li><a href="#areas">Caversham</a></li>
+        <li><a href="#areas">Tilehurst</a></li>
+        <li><a href="#areas">Woodley</a></li>
+        <li><a href="#areas">Earley</a></li>
+        <li><a href="#areas">Wokingham</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#why">About Us</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Evergreen Outdoor Solutions. All rights reserved.</span>
+    <span>Reading, Berkshire · hello@evergreenoutdoor.co.uk · 0118 000 0000</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+
+  // Form submit
+  document.querySelector('.form-submit').addEventListener('click', function() {
+    this.textContent = '✓ Enquiry Sent!';
+    this.style.background = 'var(--green-sage)';
+    setTimeout(() => {
+      this.textContent = 'Send My Enquiry →';
+      this.style.background = '';
+    }, 3000);
+  });
+</script>
+</body>
+</html>
